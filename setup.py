@@ -21,10 +21,12 @@ def read(*names, **kwargs):
     ).read()
 
 
-install_requires = [
-    l for l in open(join(dirname(__file__), 'requirements.txt')).read().split('\n')
-    if l and not l.startswith('#')
-]
+# Does not work with tox:
+# install_requires = [
+#     l for l in open(join(dirname(__file__), 'requirements.txt')).read().split('\n')
+#     if l and not l.startswith('#')
+# ]
+
 
 setup(
     name='sanic-rollbar',
@@ -32,7 +34,7 @@ setup(
     license='MIT license',
     description='A Rollbar plugin for Sanic',
     long_description='%s\n%s' % (
-        re.compile('^.. start-badges.*^.. end-badges', re.M | re.S).sub('', read('README.rst')),
+        re.compile('^.. start-badges.*^.. end-badges', re.M | re.S).sub('', read('README.md')),
         re.sub(':[a-z]+:`~?(.*?)`', r'``\1``', read('CHANGELOG.rst'))
     ),
     author='Sergei Beilin',
@@ -63,5 +65,5 @@ setup(
     keywords=[
         'sanic', 'rollbar'
     ],
-    install_requires=install_requires
+    install_requires=['sanic', 'rollbar']
 )
