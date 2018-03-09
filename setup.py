@@ -23,7 +23,7 @@ def read(*names, **kwargs):
 
 setup(
     name='sanic-rollbar',
-    version='0.1.0',
+    version='0.1.1',
     license='MIT license',
     description='A Rollbar plugin for Sanic',
     long_description='%s\n%s' % (
